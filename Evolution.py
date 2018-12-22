@@ -276,14 +276,14 @@ class Analysis:
 
 if __name__ == "__main__":
     frogTraits = ["Crazy Color", "Long Tongue", "Green Eyes"]
-    domChances = [.9, .5, .1]
+    domChances = [.5, .5, .5]
 
     pop = Population(("Frog", frogTraits, domChances, 1000))
     pop.graphTraitFrequencies(frogTraits)
 
     env = Environment(population=pop)
-    env.traitDeathChances = {"Crazy Color": .0,
-                             "Long Tongue": .0,
+    env.traitDeathChances = {"Crazy Color": .8,
+                             "Long Tongue": .2,
                              "Green Eyes": .0}
     env.traitMatingFitnesses = {"Crazy Color": 0,
                              "Long Tongue": 0,

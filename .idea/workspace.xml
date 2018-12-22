@@ -4,12 +4,6 @@
     <list default="true" id="4eddde56-d3dc-4711-a310-923b3b286b69" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Evolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/1/Start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/1/Step 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/1/Step 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/1/Step 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/best/progress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests in Static Conditions/best/start.png" beforeDir="false" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Evolution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="297" selection-start-line="297" selection-end-line="297" />
+            <state relative-caret-position="137">
+              <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
               <folding>
                 <element signature="e#72#941#0" />
                 <element signature="e#179#330#0" />
@@ -213,7 +207,7 @@
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -267,8 +261,8 @@
     <entry file="file://$PROJECT_DIR$/Evolution 2.py" />
     <entry file="file://$PROJECT_DIR$/Evolution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="297" selection-start-line="297" selection-end-line="297" />
+        <state relative-caret-position="137">
+          <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
           <folding>
             <element signature="e#72#941#0" />
             <element signature="e#179#330#0" />
