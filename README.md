@@ -3,5 +3,5 @@ A simulation of biological evolution using selection by traits caused by environ
 
 # Results
 
-- [A demonstration of Hardy-Weinberg equilibrium](/Tests in Static Conditions)
-- [A demonstration of evolution between different traits with different death rates](/Tests with Evolution)
+- A demonstration of Hardy-Weinberg equilibrium [Static Conditions](/Tests in Static Conditions)
+- A demonstration of evolution between different traits with different death rates [Evolution](/Tests with Evolution)
