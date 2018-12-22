@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eddde56-d3dc-4711-a310-923b3b286b69" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Populations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Populations.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Evolution 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Evolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evolution.py" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,32 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Evolution.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#71#681#0" />
-                <element signature="e#99#170#0" />
-                <element signature="e#209#599#0" />
-                <element signature="e#631#681#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Evolution 2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="258" selection-start-line="258" selection-end-line="258" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -98,7 +70,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Evolution 2">
+    <configuration name="Evolution 2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Populations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Evolution 2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Populations" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +115,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Evolution 2" />
         <item itemvalue="Python.Evolution" />
       </list>
     </recent_temporary>
@@ -142,7 +136,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.102013424" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.102013424" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
@@ -150,7 +144,7 @@
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -166,7 +160,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Evolution.py</url>
-          <line>210</line>
+          <line>226</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
@@ -203,21 +197,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Evolution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="100">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#71#681#0" />
             <element signature="e#99#170#0" />
             <element signature="e#209#599#0" />
             <element signature="e#631#681#0" />
+            <element signature="e#705#2840#0" />
+            <element signature="e#733#859#0" />
+            <element signature="e#907#1025#0" />
+            <element signature="e#945#1005#0" />
+            <element signature="e#1101#1445#0" />
+            <element signature="e#1570#1891#0" />
+            <element signature="e#1693#1863#0" />
+            <element signature="e#1781#1863#0" />
+            <element signature="e#1942#2088#0" />
+            <element signature="e#2094#2141#0" />
+            <element signature="e#2307#2840#0" />
+            <element signature="e#2509#2814#0" />
+            <element signature="e#2864#5779#0" />
+            <element signature="e#2892#2913#0" />
+            <element signature="e#2969#3000#0" />
+            <element signature="e#3006#3039#0" />
+            <element signature="e#3651#3801#0" />
+            <element signature="e#3879#4013#0" />
+            <element signature="e#4071#4798#0" />
+            <element signature="e#4218#4766#0" />
+            <element signature="e#4376#4688#0" />
+            <element signature="e#4505#4620#0" />
+            <element signature="e#4857#5779#0" />
+            <element signature="e#4924#5733#0" />
+            <element signature="e#5133#5445#0" />
+            <element signature="e#5262#5377#0" />
+            <element signature="e#5804#8126#0" />
+            <element signature="e#5832#6022#0" />
+            <element signature="e#6046#6116#0" />
+            <element signature="e#6257#6868#0" />
+            <element signature="e#6329#6671#0" />
+            <element signature="e#6377#6671#0" />
+            <element signature="e#6433#6671#0" />
+            <element signature="e#6501#6671#0" />
+            <element signature="e#6720#6842#0" />
+            <element signature="e#6934#7891#0" />
+            <element signature="e#7591#7841#0" />
+            <element signature="e#7974#8126#0" />
+            <element signature="e#8013#8126#0" />
+            <element signature="e#8176#8727#0" />
+            <element signature="e#8385#8545#0" />
+            <element signature="e#8452#8545#0" />
+            <element signature="e#8760#9555#0" />
+            <element signature="e#9049#9163#0" />
+            <element signature="e#9195#9306#0" />
+            <element signature="e#9384#9523#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Evolution 2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="258" selection-start-line="258" selection-end-line="258" />
+        <state relative-caret-position="151">
+          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
+          <folding>
+            <element signature="e#82#774#0" />
+            <element signature="e#109#220#0" />
+            <element signature="e#379#769#0" />
+            <element signature="e#856#917#0" />
+            <element signature="e#757#2892#0" />
+            <element signature="e#963#1091#0" />
+            <element signature="e#1188#1306#0" />
+            <element signature="e#985#1045#0" />
+            <element signature="e#1657#2001#0" />
+            <element signature="e#2154#2475#0" />
+            <element signature="e#1733#1903#0" />
+            <element signature="e#1821#1903#0" />
+            <element signature="e#2575#2721#0" />
+            <element signature="e#2134#2181#0" />
+            <element signature="e#2975#3508#0" />
+            <element signature="e#2966#3136#1" />
+            <element signature="e#2549#2854#0" />
+            <element signature="e#2907#5838#0" />
+            <element signature="e#2932#2953#0" />
+            <element signature="e#3009#3040#0" />
+            <element signature="e#3691#3841#0" />
+            <element signature="e#3919#4053#0" />
+            <element signature="e#4111#4838#0" />
+            <element signature="e#4258#4806#0" />
+            <element signature="e#4416#4728#0" />
+            <element signature="e#4545#4660#0" />
+            <element signature="e#4897#5819#0" />
+            <element signature="e#4964#5773#0" />
+            <element signature="e#5173#5485#0" />
+            <element signature="e#5302#5417#0" />
+            <element signature="e#6203#8884#0" />
+            <element signature="e#5872#6062#0" />
+            <element signature="e#6776#7626#0" />
+            <element signature="e#7720#8677#0" />
+            <element signature="e#8821#8973#0" />
+            <element signature="e#8193#9053#0" />
+            <element signature="e#8342#9053#0" />
+            <element signature="e#8480#8648#0" />
+            <element signature="e#9176#9290#0" />
+            <element signature="e#9322#9433#0" />
+            <element signature="e#9817#9956#0" />
+          </folding>
         </state>
       </provider>
     </entry>

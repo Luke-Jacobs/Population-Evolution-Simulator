@@ -1,11 +1,19 @@
 import random, matplotlib.pyplot as plt, numpy as np
 
+
 class Trait:
+    """Simulates a sequence of DNA that expresses itself in an Individual."""
+
     def __init__(self):
+        """Default Trait properties."""
         self.name = ""
         self.genotype = []
         self.phenotype = None
+        self.reproductiveFitness = None
+
     def __add__(self, other):
+        """Combines Traits using shuffling during meiosis."""
+
         if other.name != self.name:
             raise RuntimeError("Different traits mixing")
 
@@ -16,24 +24,33 @@ class Trait:
         newTrait.genotype = [al1, al2]
         newTrait.phenotype = max(newTrait.genotype)
         return newTrait
+
     def __str__(self):
+        """For pretty printing."""
         return "<%s %s>" % (self.name, str(self.genotype))
 
+
 class Individual:
+    """A collection of traits, fitness, age, and a species identifier. Can mate with another Individual
+    object to produce another Individual with reshuffled DNA (traits)."""
+
     def __init__(self):
-        self.traits = [] #traits with different names
+        """Default Individual characteristics"""
+        self.traits = []  # traits with different names
         self.speciesName = ""
         self.age = 0.0
         self.fitness = None
 
     def getTraitGenotype(self, name):
+        """Lookup Trait object in Individual by name"""
         for trait in self.traits:
             if trait.name == name:
                 return trait.genotype
         return None
 
-    #mating with another individual
     def __add__(self, other):
+        """Mating with another individual."""
+
         offspring = Individual()
 
         if self.speciesName != other.speciesName:
@@ -46,9 +63,10 @@ class Individual:
 
         return offspring
 
-    #sets value of self.fitness given a dictionary of traitName: fitness
     def getFitness(self, traitFitnesses):
-        if self.fitness:
+        """Returns value of overall Individual fitness given a dictionary of [traitName: fitness]."""
+
+        if self.fitness:  # If we already calculated this Individual's fitness
             return self.fitness
 
         self.fitness = 0.0
@@ -58,8 +76,8 @@ class Individual:
                     self.fitness += traitFitnesses[trait.name]
         return self.fitness
 
-    #for printing
     def __str__(self):
+        """For pretty printing."""
         traitMsg = ""
         for trait in self.traits:
             traitMsg += (str(trait) + " ")
@@ -69,6 +87,11 @@ class Individual:
     #and from traitChances (list of percent change dominant allele)
     @staticmethod
     def fromGenome(speciesName: str, genome: list, traitChances=None):
+        """Make an Individual from a genome and initial trait chances for an environment.
+        @:param list genome: A list of trait names. ex: ['Red Eyes', 'Tall']
+        @:param list traitChances: A list of dominant trait chances. ex: [.5, .9, 1.0]
+        @:return Individual: The offspring of random chance."""
+
         offspring = Individual()
         offspring.speciesName = speciesName
 
@@ -85,30 +108,15 @@ class Individual:
 
         return offspring
 
+
 class Population:
+    """A collection of individuals."""
+
     def __init__(self):
         self.individuals = []
 
     def immigrate(self, individuals) -> None:
         self.individuals += individuals
-
-    # def mateAll(self, n=1) -> None:
-    #     for i in range(n):
-    #         #new offspring
-    #         offspring = []
-    #
-    #         #random mating
-    #         random.shuffle(self.individuals)
-    #         pairs = [self.individuals[i:i+2] for i in range(0, len(self.individuals), 2)]
-    #             #put individuals into pairs
-    #
-    #         #combine genes and add individuals to a new array
-    #         for pair in pairs:
-    #             if len(pair) != 2:
-    #                 continue
-    #             offspring.append(pair[0] + pair[1])
-    #
-    #         self.individuals += offspring
 
     def show(self):
         populationMsg = ""
@@ -166,32 +174,40 @@ class Population:
         plt.tight_layout()
         plt.show()
 
+
 class Environment:
-    def __init__(self):
-        self.population = None
-        self.traitDeathChances = {} #chances of insta-death for a specific trait
-        self.traitMatingFitnesses = {} #benefits/disadvantages to reproductive fitness
+    """A simulated Environment that simplifies the effects of evolution on a population."""
+
+    def __init__(self, population=None, traitDeathChances=None, traitMatingFitnesses=None):
+        self.population = population if population else []
+        self.traitDeathChances = traitDeathChances if traitDeathChances else {}  # Chances of insta-death for a trait
+        self.traitMatingFitnesses = traitMatingFitnesses if traitMatingFitnesses else {}  # Benefits/disadvantages
 
     @staticmethod
-    #eliminates part of a population depending on each individual's traits
-    #traitDeathChances = {"blue color": .9, "tongue size": .1}
-    def traitDeath(population: Population, traitDeathChances: dict):
+    def traitDeath(population: Population, traitDeathChances: dict) -> Population:
+        """Eliminates part of a population depending on each individual's traits."""
+
         dead = []
+        # Mark individuals for death
         for individual in population.individuals:
             for trait in individual.traits:
                 if trait.name in traitDeathChances:
-                    if trait.phenotype: #if genes are expressed
+                    if trait.phenotype:  # If genes are expressed (if one allele is dominant)
                         deathChance = traitDeathChances[trait.name]
-                        if random.random() < deathChance: #individual dies
+                        if random.random() < deathChance:  # Individual dies
                             dead.append(individual)
+        # Kill each death-marked individual
         for deadindividual in dead:
             try:
                 population.individuals.remove(deadindividual)
             except ValueError:
                 continue
+        # Return the smaller population
         return population
 
     def mateTheMostFit(self, n=1, freqMate=.5) -> None:
+        """Perform selection using constants that dictate random chance."""
+
         offspring = [] #new offspring
         individualsRanked = [] #individuals to mate
 
@@ -200,41 +216,52 @@ class Environment:
             individualsRanked.append([i, self.population.individuals[i].getFitness(self.traitMatingFitnesses)])
         individualsRanked.sort(key=lambda x: -x[1])
 
-        #mate a part of the best individuals
+        # mate a part of the best individuals
         nWhoWillMate = int(len(self.population.individuals) * freqMate)
-        #put individuals into list
+        # put individuals into list
         bestIndividuals = [self.population.individuals[ranking[0]] for ranking in individualsRanked]
         for i in range(0, nWhoWillMate, 2):
             try:
                 pair = [bestIndividuals[i], bestIndividuals[i+1]]
-            except KeyError: #if odd list
+            except KeyError:  # if odd list
                 continue
-            for j in range(n): #have n babies
+            for j in range(n):  # have n babies
                 offspring.append(pair[0] + pair[1]) #one offspring
 
         self.population.individuals += offspring
 
-    #move forward x timesteps
     def fastforward(self, timesteps: int):
-        for i in range(timesteps):
+        """Move forward a certain number of timesteps."""
+        for _ in range(timesteps):
             self.mateTheMostFit(3, .5)
             self.population = self.traitDeath(self.population, self.traitDeathChances)
 
-def plotAlleleFrequencies(traitData: list):
-    graphPoints = [[] for i in range(len(traitData[0]))] #should be list of separate trait points
-    key = [traitName for traitName in traitData[0]]
 
-    for timepoint in traitData: #for each time period
-        for i in range(len(timepoint)): #for each trait number
-            traitName = list(timepoint.keys())[i]
-            graphPoints[i].append(timepoint[traitName])
+class Analysis:
+    """A class for storing analytical functions in a convenient namespace."""
 
-    x = np.arange(len(traitData))
-    for traitPoints in graphPoints:
-        plt.plot(x, traitPoints)
-    plt.legend(key)
-    plt.title("Allele frequency vs. Time")
-    plt.show()
+    @staticmethod
+    def plotAlleleFrequencies(traitData: list):
+        """Plots a line graph of allele frequencies over time given a list of trait data.
+        :param list traitData: A list of dictionaries [traitname (str): traitfrequency (float)]"""
+
+        graphPoints = [[] for _ in range(len(traitData[0]))] #should be list of separate trait points
+        key = [traitName for traitName in traitData[0]]
+
+        for timepoint in traitData: #for each time period
+            for i in range(len(timepoint)): #for each trait number
+                traitName = list(timepoint.keys())[i]
+                graphPoints[i].append(timepoint[traitName])
+
+        x = np.arange(len(traitData))
+        for traitPoints in graphPoints:
+            plt.plot(x, traitPoints)
+        plt.legend(key)
+        plt.xlabel('Generations')
+        plt.ylabel('Frequency of allele')
+        plt.title("Allele frequency vs. Time")
+        plt.show()
+
 
 if __name__ == "__main__":
     frogTraits = ["Crazy Color", "Long Tongue", "Green Eyes"]
@@ -260,5 +287,5 @@ if __name__ == "__main__":
         timestop = env.population.getAlleleFrequencies(frogTraits)
         data.append(timestop)
         print(timestop)
-    plotAlleleFrequencies(data)
+    Analysis.plotAlleleFrequencies(data)
 
