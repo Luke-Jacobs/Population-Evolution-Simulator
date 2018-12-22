@@ -112,24 +112,32 @@ class Individual:
 class Population:
     """A collection of individuals."""
 
-    def __init__(self):
+    def __init__(self, speciesInformation=None):
         self.individuals = []
+
+        # Automatically populate this object
+        if speciesInformation:
+            self.addSpecies(*speciesInformation)
 
     def immigrate(self, individuals) -> None:
         self.individuals += individuals
 
-    def show(self):
+    def show(self) -> None:
+        """Prints the string representation of each individual in this population."""
         populationMsg = ""
         for individual in self.individuals:
             populationMsg += (str(individual) + "\n")
         print(populationMsg[:-1])
 
-    def addSpecies(self, speciesName, traits, domAlleleChances, n):
-        individuals = [Individual.fromGenome(speciesName, traits, domAlleleChances) for i in range(n)]
+    def addSpecies(self, speciesName: str, traits: list, domAlleleChances: list, n: int) -> None:
+        individuals = [Individual.fromGenome(speciesName, traits, domAlleleChances) for _ in range(n)]
         self.individuals += individuals
 
-    def getAlleleFrequencies(self, traitNames):
-        frequencyByTrait = {} #traitName: frequency
+    def getAlleleFrequencies(self, traitNames) -> dict:
+        """Return a dictionary of [traitName (str): frequency (float)] given the object's current state.
+        Used in time-based simulation functions."""
+
+        frequencyByTrait = {}  # [TraitName: frequency]
         totalAlleles = len(self.individuals) * 2
 
         for i in range(len(traitNames)):
@@ -146,9 +154,12 @@ class Population:
                 else: #heterozygous
                     hetero += 1
             frequencyByTrait[traitName] = (homoDom*2 + hetero) / totalAlleles
+
         return frequencyByTrait
 
-    def graphTraitFrequencies(self, traitNames):
+    def graphTraitFrequencies(self, traitNames: list) -> None:
+        """Graph the number of traits in this population at one moment in time."""
+
         plt.figure(1)
         for i in range(len(traitNames)):
             traitName = traitNames[i] #specific trait to plot
@@ -168,7 +179,7 @@ class Population:
             label = ["Homozygous Dominant", "Heterozygous", "Homozygous Recessive"]
             index = np.arange(len(label))
             plt.bar(index, [homoDom, hetero, homoRec])
-            plt.ylabel('Frequency')
+            plt.ylabel('Number')
             plt.xticks(index, label)
             plt.title(traitName)
         plt.tight_layout()
@@ -267,12 +278,10 @@ if __name__ == "__main__":
     frogTraits = ["Crazy Color", "Long Tongue", "Green Eyes"]
     domChances = [.9, .5, .1]
 
-    pop = Population()
-    pop.addSpecies("Frog", frogTraits, domChances, 1000)
+    pop = Population(("Frog", frogTraits, domChances, 1000))
     pop.graphTraitFrequencies(frogTraits)
 
-    env = Environment()
-    env.population = pop
+    env = Environment(population=pop)
     env.traitDeathChances = {"Crazy Color": .0,
                              "Long Tongue": .0,
                              "Green Eyes": .0}
@@ -286,6 +295,5 @@ if __name__ == "__main__":
         env.fastforward(1)
         timestop = env.population.getAlleleFrequencies(frogTraits)
         data.append(timestop)
-        print(timestop)
     Analysis.plotAlleleFrequencies(data)
 
