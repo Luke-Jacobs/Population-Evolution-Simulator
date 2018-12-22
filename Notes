@@ -1,0 +1,23 @@
+Trait
+    Genotype
+    Phenotype
+        Fitness - depends on env
+
+
+Individual
+    Traits
+        Name - "Color" - mixes with other named the same
+        Genotype - [1, 0]
+        Phenotype - True or False
+    Age
+
+Population
+    Individuals
+
+Environment
+    Population
+    Trait Fitnesses
+
+
+
+Aa - phenotype A - heterozygous

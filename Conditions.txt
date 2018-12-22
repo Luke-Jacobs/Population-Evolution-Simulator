@@ -1,0 +1,6 @@
+Traits:
+	Crazy Color (Freq: .5) (Death: .9)
+	Long Tongue (Freq: .9) (Death: .05)
+	Green Eyes (Freq: .1) (Death: 0.0)
+
+	

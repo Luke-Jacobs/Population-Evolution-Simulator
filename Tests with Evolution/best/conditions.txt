@@ -1,0 +1,12 @@
+Starting frequency for all alleles - 50%
+
+Crazy Color
+	Death Chance = .8
+	Reproductive Points = 0
+Long Tongue
+	Death Chance = .2
+	Reproductive Points = 0
+Green Eyes
+	Death Chance = .0
+	Reproductive Points = 0
+	
